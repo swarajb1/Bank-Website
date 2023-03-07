@@ -1,0 +1,66 @@
+{% extends 'account/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/trasanction/history.css' %}">
+
+{% include 'account/datetime.html' %}
+
+<div id="history">
+    <!-- <p><strong><u>Trasanction History:</u></strong>&emsp;&emsp;</p> -->
+    <p><strong>Account ID: {{ request.user.account_id }}</strong></p>
+
+    {% if pages_num %} 
+        <span>
+            {% for num in pages_num %}
+                <button id="page{{ num }}" class="page_button">{{ num }} </button>
+            {% endfor %} 
+        </span>
+        
+        {% for page in list_of_pages %}
+            <table class="tr_list">
+                <tr>
+                    {% for field_headers in transaction_headers %}
+                        <th>{{ field_headers }}</th>
+                    {% endfor %}            
+                </tr>
+            
+                {% for trasanction in page %}
+                <tr>
+                    {% for items in trasanction %}
+                        <td>{{ items }}</td>
+                    {% endfor %}            
+                </tr>
+                {% endfor %}            
+
+            </table>
+        {% endfor %} 
+    {% else %}
+        {# // only one page, so directly visible without any active class  #}
+        {% for page in list_of_pages %}
+            <table>
+                <tr>
+                    {% for field_headers in transaction_headers %}
+                        <th>{{ field_headers }}</th>
+                    {% endfor %}            
+                </tr>
+            
+                {% for trasanction in page %}
+                <tr>
+                    {% for items in trasanction %}
+                        <td>{{ items }}</td>
+                    {% endfor %}            
+                </tr>
+                {% endfor %}            
+
+            </table>
+        {% endfor %} 
+    {% endif %}
+    
+
+</div>
+
+
+{% endblock %}
+

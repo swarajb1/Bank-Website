@@ -1,0 +1,100 @@
+#index {
+    margin-top: 20px;
+    text-align: justify;
+}
+
+#index h1 {    
+    color: gold;
+    font-size: 60px;
+    background-color: gray;
+    margin-block-start: 5px;
+    margin-block-end: 5px;
+    margin: 10px 10px 20px 10px;
+    padding: 5px;
+}
+
+#index #mainHeading {
+    background-color: rgb(255, 217, 0);
+    margin: 5px 0px 30px 0px;
+    font-size: 20px;
+    border: 15px double orange;
+    float: left;
+}
+
+#index #mainHeadingP {
+    margin: 10px;
+}
+
+
+#index h2 {
+    color: rgb(0, 0, 0);
+    font-size: 26px;
+    margin: 25px 10px 0px 20px;
+}
+
+
+
+#index section {
+    background-color: rgb(135, 135, 135); /* shade of gray */
+    text-align: justify;
+    margin: 50px 2% 10px 2%;
+    float: left;
+    clear: left;
+
+}
+
+
+#index img {
+    padding: 5px 0px 5px 5px;
+    float: right;
+    clear: right;
+    height: auto;
+}
+
+
+#index p.answers {
+    margin: 20px 20px 0px 30px;
+    font-size: 20px;
+}
+
+
+
+#index ol{
+    margin: 10px 20px 0px 30px;
+    list-style-type: decimal;
+}
+
+#index li {
+    font-size: 20px;
+}
+
+
+/************* Large devices only *************/
+@media (min-width: 1200px){
+
+}
+
+
+/************* Medium devices only *************/
+@media (max-width: 1200px) and (min-width: 750px) {
+    #index section {
+        margin: 50px 0px 0px 0px;
+    }
+
+    #index #mainHeading {
+        border-width: 5px;  
+    }
+}
+
+
+/************* small devices only *************/
+@media (max-width: 750px) {
+    #index section {
+        margin: 50px 0px 0px 0px;
+    }
+
+    #index #mainHeading {
+        border-width: 5px;  
+    }
+}
+

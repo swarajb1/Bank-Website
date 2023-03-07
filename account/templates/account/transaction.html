@@ -1,0 +1,46 @@
+{% extends 'account/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/account/transaction.css' %}">
+
+{% include 'account/datetime.html' %}
+
+<div id="transaction" class="active_page">
+    <p><strong><u>Transaction Page</u></strong></p>
+    <table class="account_details">
+        {% for detail in account_info %}
+        <tr>
+            {% for item in detail %}
+                <td> {{ item }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    <form class="form-container" action="" method="post">
+        {% csrf_token %}
+        <table>
+            {% for field in transaction_form %}
+                <tr>
+                    <td class="cell_name">{{ field.label_tag }}</td>
+                    <td>{{ field }}
+                        {% for error in field.errors %}
+                            <p class="cell_error">{{error}}</p>
+                        {% endfor %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+            
+        <p class="message">{{ more_message }} </p>    
+        
+        <button class="submit-btn" type="submit" {% if btn_disabled %} disabled {% endif %}>Confirm Transaction</button>
+    </form>
+</div>
+
+
+{% endblock %}
+

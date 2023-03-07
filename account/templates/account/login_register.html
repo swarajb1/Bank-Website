@@ -1,0 +1,55 @@
+{% extends 'public/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/public/login_register.css' %}">
+
+<div id="login_register">
+    {% comment %} First Login is checked, then Register. {% endcomment %}
+
+    {% if login_form %}
+        <h2>Login</h2>
+        <form class="form-container" action="" method="post">
+            {% csrf_token %}
+            {% for field in login_form %}
+                <p class="fields">
+                    {{ field.label_tag }}
+                    {{ field }}
+
+                    {% for error in field.errors %}
+                        <p class="fielderror" style="color:red">{{error}} </p>
+                    {% endfor %}
+                </p>
+            {% endfor %}
+            <button class="submit-btn" type="submit">Login</button>
+        </form>
+    {% endif %}
+    
+    {% comment %} -------------------------------------------------- {% endcomment %}
+
+    {% if registration_form %}
+        <h2>Register a New User</h2>
+        <form class="form-container" action="" method="post">
+            {% csrf_token %}
+            {% for field in registration_form %}
+                <p class="fields">
+                    {{ field.label_tag }}
+                    {{ field }}
+            
+                    {% for error in field.errors %}
+                        <p class="fielderror" style="color:red">{{error}} </p>
+                    {% endfor %}
+                </p>
+            {% endfor %}
+            <button type="submit" class="submit-btn">Register</button>
+        </form>
+    {% endif %}
+    
+
+
+</div>
+
+
+{% endblock %}

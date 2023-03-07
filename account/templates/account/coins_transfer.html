@@ -1,0 +1,87 @@
+{% extends 'account/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/account/transaction.css' %}">
+
+{% include 'account/datetime.html' %}
+
+
+<div id="transaction" class="active_page">
+    <p><strong><u>Transaction Page</u></strong></p>
+
+    <div id="other_account" class="active_transaction">
+        <table>
+            {% for account_info in other_account %}
+                <tr>
+                    {% for item in account_info %}
+                    <td> {{item}} </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+        
+        <form class="form-container" action="" method="post">
+            {% csrf_token %}
+            <table>
+                {% for field in transaction_form %}
+                    <tr>
+                        <td class="cell_name">{{ field.label_tag }}</td>
+                        <td>{{ field }}
+                            {% for error in field.errors %}
+                                <p class="cell_error">{{error}}</p>
+                            {% endfor %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+                
+            <p class="message">{{ more_message }} </p>    
+            
+            <button class="submit-btn" type="submit" {% if btn_disabled %} disabled {% endif %}>Confirm Transaction</button>
+        </form>
+    
+            
+    </div>
+
+    <div id="transaction_charges">
+        <table>
+            {% for account_info in transaction_charges %}
+                <tr>
+                    {% for item in account_info %}
+                    <td> {{item}} </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+
+        <p class="message">{{ more_message }} </p>    
+            
+        <button class="submit-btn" type="submit" {% if btn_disabled %} disabled {% endif %}>Confirm Transaction</button>
+    </div>
+
+
+    <div id="annual_charges">
+        <table>
+            {% for account_info in annual_charges %}
+                <tr>
+                    {% for item in account_info %}
+                    <td> {{item}} </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+
+        <p class="message">{{ more_message }} </p>    
+            
+        <button class="submit-btn" type="submit" {% if btn_disabled %} disabled {% endif %}>Confirm Transaction</button>
+    </div>
+
+
+
+</div>
+
+
+{% endblock %}
+

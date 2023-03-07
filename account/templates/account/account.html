@@ -1,0 +1,59 @@
+{% extends 'account/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/account/account.css' %}">
+
+{% include 'account/datetime.html' %}
+
+<div id="account_page">
+
+    <table id="dashboard" class="active_table">
+        {% for account_info in dashboard %}
+            <tr>
+                {% for item in account_info %}
+                <td> {{item}} </td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+    
+    <table id="account_summary">
+        {% for account_info in account_summary %}
+            <tr>
+                {% for item in account_info %}
+                <td> {{item}} </td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+    
+    <table id="account_details">
+        {% for account_info in account_details %}
+            <tr>
+                {% for item in account_info %}
+                <td> {{item}} </td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+    
+    <table id="my_profile">
+        {% for account_info in my_profile %}
+            <tr>
+                {% for item in account_info %}
+                <td> {{item}} </td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+
+
+    
+
+
+</div>
+
+{% endblock %}
+

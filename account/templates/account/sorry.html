@@ -1,0 +1,39 @@
+{% extends 'account/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="sorry" style="background-color: magenta; margin: 50px; float:left; padding: 20px; font-style: italic; font-weight: bolder; border: 10px solid rgb(25, 0, 139); width: 35%;" >
+    <br><br>
+    <u>This feature is still in development. </u>
+    <br><br>
+    <p>
+        Feature: {{ request.path }}
+    </p>
+    <br><br>
+
+    {% if message %}
+    <p> {{ message }}</p>
+    {% endif %}
+</div>
+
+
+<!-- ---------------------------------------- -->
+
+{% if extra_info %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/account/dashboard.css' %}">
+
+    <div id="dashboard">
+        <table>
+            {% for item in extra_info %}
+            <tr>
+                <td> {{ item }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endif %}
+
+
+{% endblock %}

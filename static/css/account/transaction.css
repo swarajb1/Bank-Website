@@ -1,0 +1,113 @@
+#transaction {
+    float: left;
+    clear: right;
+    background-color: honeydew;
+    clear: right;
+    margin: 20px;
+    min-width: 840px;
+    width: calc(100vw - 320px);
+    padding: 15px;
+
+}
+
+#transaction p {
+    margin: 10px;
+}
+
+#transaction table {
+    min-width: 810px;
+    width: calc(100vw - 350px);
+}
+
+#transaction form.form-container {
+    border: 10px solid gold;
+    margin-top: 30px;
+}
+
+
+#transaction .form-container table {
+    min-width: 740px;
+    width: calc(100vw - 420px);
+    margin: 0 25px;
+}
+
+#transaction td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px 15px;
+}
+
+#transaction td:nth-child(even) {
+    width: 45%;
+}
+
+#transaction tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+
+
+#transaction .form-container .cell_error {
+    color: red;
+    background-color: rgba(255, 0, 0, 0.1);
+    font-size: 20px;
+    padding: 0 10px;
+}
+
+input[type=text], 
+input[type=number] {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    font-size: 20px;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+
+#transaction .form-container button.submit-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 45px;
+    margin: 10px 25%;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+    font-size: 20px;
+}
+
+#transaction button:hover {
+    opacity: 0.8;
+}
+
+#transaction button:disabled {
+    background-color: gray !important; 
+}
+#transaction button:disabled:hover {
+    opacity: 1;
+    cursor: default;
+}
+
+#transaction p.message {
+    margin: 10px 50px;
+    border: 0;
+    font-weight: 600;
+    font-size: 22px;
+
+}
+
+#transaction #other_account,
+#transaction #transaction_charges,
+#transaction #annual_charges {
+    display: none;
+}
+
+
+#transaction .active_transaction {
+    display: block !important;
+}

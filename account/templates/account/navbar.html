@@ -1,0 +1,52 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/account/navbar.css' %}">
+
+<nav role="banner" class="navbar">
+    <a href="{% url 'account:account' %}" class="logo">GCBS</a>
+    <p class="meta">Banking towards a Visionary Future</p>
+
+    <div role="navigation">
+        <ul id="topnav">
+            <li>
+                <a href="{% url 'account:change_password' %}">Change Password</a> 
+            </li>
+            <li>
+                <a href="{% url 'account:session_summary' %}">Session Summary</a>
+            </li>
+            <li>
+                <a href="{% url 'account:site_map' %}">Site Map</a>
+            </li>
+            <li>
+                <a href="{% url 'public:contact' %}">Contact Us</a>
+            </li>
+        </ul>
+        
+        <div id="middlenav">
+            <p id="welcome">
+                Welcome {{request.user.account_id}} - {{request.user.account_name}}
+                <!-- Welcome {{ account_id }} - {{ account_name }} -->
+            </p>
+            <a href="{% url 'account:logout' %}" class="signout">Logout</a>    
+        </div>
+
+
+        <ul id="bottomnav">
+            <li>
+                <a class="main_opt" href="{% url 'account:account' %}">Accounts</a>
+            </li>
+            <li>
+                <a class="main_opt" href="{% url 'transaction:transaction' %}">Coins Transfer</a>
+            </li>
+            <li>
+                <a class="main_opt" href="{% url 'account:deposits' %}">Deposits</a>
+            </li>
+            <li>
+                <a class="main_opt" href="{% url 'account:services' %}">Services</a>
+            </li>
+        </ul>
+
+
+    </div>
+</nav>
+

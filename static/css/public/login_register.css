@@ -1,0 +1,57 @@
+#login_register {
+    margin: 50px auto;
+    width: 80%;
+    border: 5px solid wheat;
+    clear: both;
+    background-color: rgb(255, 241, 120);
+}
+
+#login_register h2 {
+    margin: 10px;
+    padding: 10px;
+    display: block;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+#login_register > form.form-container {
+    width: 80%; 
+    margin: auto; 
+}
+
+#login_register > form.form-container > p.fields {
+    margin: 10px 0; 
+}
+
+#login_register input[type=text], 
+#login_register input[type=password] {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 8px 0 15px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    font-size: 20px;
+}
+  
+#login_register button.submit-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 45px;
+    margin: 10px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: 20px;
+}
+
+#login_register button:hover {
+    opacity: 0.8;
+}
+
+#login_register p.fielderror {
+    margin-top: -10px;
+    background-color: rgba(255, 0, 0, 0.1);
+    padding: 5px 0;
+}
+
+

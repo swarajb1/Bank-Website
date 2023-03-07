@@ -1,0 +1,33 @@
+#dashboard {
+    float: left;
+    clear: right;
+    background-color: honeydew;
+    margin: 20px;
+    min-width: 840px;
+    width: calc(100vw - 320px);
+    max-width: 1230px;
+    padding: 15px;
+    line-height: 1.6;
+    font-size: 20px;
+}
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px 15px;
+}
+
+td:nth-child(even) {
+    width: 45%;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+

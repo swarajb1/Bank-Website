@@ -1,0 +1,51 @@
+#navbar {
+    background-color: lawngreen;
+    font-family: "Roboto", "Lucida Grande", "Lucida Sans", sans-serif;
+    font-weight: 550;
+    font-size: 23px;
+    padding: 20px;
+    border-bottom: 5px solid blue;
+}
+
+#navbar #signin {
+    float: right;
+    /* background-color: lightcoral; */
+    padding: 5px 45px;
+    margin-top: -5px;
+}
+
+#navbar a {
+    color: white;
+}
+
+#navbar a:hover {
+    background-color: gray;
+}
+
+
+#navbar a {
+    margin: 0;
+    padding: 5px 10px;
+    text-transform: uppercase;
+}
+
+#navbar #signin a:hover {
+    background-color: rgb(161, 0, 0);
+}
+
+
+#navbar span.pageOpen {
+    background-color: rgb(194, 255, 103);
+    text-transform: uppercase;
+    padding: 5px 10px;
+}
+
+#navbar #signin a {
+    border-radius: 2px;
+    background-color: lightcoral;
+    padding: 5px 20px;
+    border-radius: 20px;
+}
+
+
+

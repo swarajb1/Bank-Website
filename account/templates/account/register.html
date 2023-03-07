@@ -1,0 +1,38 @@
+{% extends 'account/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/account/register.css' %}">
+
+{% include 'account/datetime.html' %}
+
+
+<div id="register">
+    <h2>Register New User</h2>
+    <form class="form-container" action="" method="post">
+        {% csrf_token %}
+        {% for field in registration_form %}
+            <p class="fields">
+                {{ field.label_tag }}
+                {{ field }}
+        
+                {% for error in field.errors %}
+                    <p class="fielderror" style="color:red">{{error}} </p>
+                {% endfor %}
+            </p>
+        {% endfor %}
+        <button type="submit" class="submit-btn">Register</button>
+    </form>
+    
+
+
+</div>
+
+
+
+
+
+{% endblock %}
+
+

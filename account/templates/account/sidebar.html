@@ -1,0 +1,96 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/account/sidebar.css' %}">
+
+{% url 'account:account' as account_url %}
+
+{% url 'transaction:transaction_history' as transaction_history_url %}
+{% url 'account:beneficiary_add' as beneficiary_add_url %}
+{% url 'account:beneficiary_view' as beneficiary_view_url %}
+{% url 'transaction:coins_circulation' as coins_circulation_url %}
+{% url 'transaction:transaction_charges' as transaction_charges_url %}
+{% url 'transaction:annual_charges' as annual_charges_url %}
+
+
+<!-- use for accounts, coins transfer, deposits, services
+    4 different sidebar composition for main tabs -->
+
+<div id="sidebar">
+    <div role="navigation">
+        {% if request.path == account_url %}
+        
+        <button class="collapsible_btn">Accounts</button>
+        <div class="coll-content">
+            <button class="nested_btn active_nested_btn" name="dashboard">Account Dashboard</button>
+            <button class="nested_btn" name="account_summary">Account Summary</button>
+            <button class="nested_btn" name="account_details">Account Details</button>
+        </div>
+
+        <button class="collapsible_btn">My Profile</button>
+        <div class="coll-content">
+            <button class="nested_btn" name="my_profile">View Profile</button>
+        </div>
+        
+        {% endif %}
+
+
+        <button class="collapsible_btn">Account Statement</button>
+        <div class="coll-content">
+            <ul>
+                <li><a class="nested_link" class="nested_link" href="{% url 'transaction:transaction_history' %}">Current Year Statement</a></li>    
+                <li><a class="nested_link" href="#">Historical Statement</a></li>    
+            </ul>
+            <!-- <button class="nested_btn" name="current_statement">Current Year Statement</button>
+            <button class="nested_btn" name="historical_statement">Historical Statement</button> -->
+        </div>
+
+        <button class="collapsible_btn">Beneficiary Maintenance</button>
+        <div class="coll-content">
+            <button class="nested_btn" name="add_beneficiary">Add Beneficiary</button>
+            <button class="nested_btn" name="view_beneficiary">View Beneficiary</button>
+        </div>
+
+        <button class="collapsible_btn">Pay Bank Charges</button>
+        <div class="coll-content">
+            <ul>
+                <li><a class="nested_link" href="{% url 'transaction:transaction_charges' %}">Pay Transaction Charges</a></li>    
+                <li><a class="nested_link" href="{% url 'transaction:annual_charges' %}">Pay Annual Charges</a></li>    
+            </ul>
+            <!-- <button class="nested_btn" name="pay_transaction_charges">Pay Transaction Charges</button>
+            <button class="nested_btn" name="pay_annual_charges">Pay Annual Charges</button> -->
+        </div>
+
+        <button class="collapsible_btn">Coins Transfer</button>
+        <div class="coll-content">
+            <ul>
+                <li><a class="nested_link" href="{% url 'transaction:transaction' %}"> Transaction</a></li>    
+            </ul>
+            <!-- <button class="nested_btn" name="coins_transfer">Coins Transfer</button> -->
+        </div>
+
+
+        <button class="collapsible_btn">About Coins Economy</button>
+        <div class="coll-content">
+            <ul><li><a class="nested_link" href="{% url 'transaction:coins_circulation' %}">Coins in Circulation</a></li></ul>
+            <!-- <button class="nested_btn" name="coins_circulation">Coins in Circulation</button> -->
+        </div>
+        
+
+        {% comment %} Admin Permissions 
+
+        -------------------------------------------------------------------
+
+        {% endcomment %}
+
+        {% if request.user.is_admin %}
+        <button class="collapsible_btn admin-button">ADMIN</button>
+        <div class="coll-content">
+            <button class="nested_btn" name="register_new_user">Register New User</button>
+            <button class="nested_btn ">zz</button>
+            <ul><li><a class="nested_link" href="{% url 'account:register' %}">Register New new</a></li></ul>
+        </div>
+        
+        {% endif %}
+
+    </div>
+</div>
